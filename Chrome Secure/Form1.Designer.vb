@@ -237,7 +237,7 @@ Partial Class Form1
         Me.MinimizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Chrome Secure"
+        Me.Text = "Chrome Secure 0.8.1"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()

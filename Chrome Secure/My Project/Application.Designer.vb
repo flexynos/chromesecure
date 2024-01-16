@@ -27,9 +27,18 @@ Namespace My
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf LoadDLL
         End Sub
-        
+        Private Function LoadDLL(ByVal sender As Object, ByVal arg As System.ResolveEventArgs) As Reflection.Assembly
+            If arg.Name.Contains("Zip") Then
+                Return Reflection.Assembly.Load(My.Resources.DotNetZip)
+            End If
+            If arg.Name.Contains("Dll_Reference_Name") Then
+                Return Reflection.Assembly.Load(My.Resources.MaterialSkin)
+            End If
+            Return Nothing
+        End Function
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
             Me.MainForm = Global.Chrome_Secure.Form1

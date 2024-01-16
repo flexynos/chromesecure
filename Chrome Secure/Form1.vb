@@ -152,6 +152,7 @@ Public Class Form1
 
         Catch
             MsgBox("Wrong password!" & vbCrLf & TextBox4.Text & TextBox3.Text, vbCritical)
+            TextBox2.Text = ""
         End Try
 
     End Sub
