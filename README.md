@@ -1,9 +1,6 @@
-# chromesecure 0.8.1
+# chromesecure 0.8.2
 Encryption of personal data in the Google Chrome browser!
-Changelog:
-- Libraries inside the executable (DotNetZip, MaterialSkin)
-- The password is deleted if it was entered incorrectly
+- Material design implemented
+- Libraries inside the executable
 
-Changes are minimal, minor update, expect a redesign!
-
-Based on DotNetZip with encryption (WinZipAES128/256).
+Based on MaterialSkin 4.0 & DotNetZip with encryption (WinZipAES128/256).
