@@ -15,7 +15,7 @@ Public Class Form2
 
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaterialRaisedButton1.Click
         Try
             Using zip As New ZipFile(Form1.TextBox1.Text)
                 Dim ext As ZipEntry
@@ -38,7 +38,7 @@ Public Class Form2
                     zip.AddDirectory("cache\" & Form1.TextBox1.Text)
                     zip.Save(Form1.TextBox1.Text)
                 End Using
-        Catch
+            Catch
                 MsgBox("Account does not exist! Try another name!")
             End Try
 

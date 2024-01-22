@@ -34,7 +34,7 @@ Namespace My
             If arg.Name.Contains("Zip") Then
                 Return Reflection.Assembly.Load(My.Resources.DotNetZip)
             End If
-            If arg.Name.Contains("Dll_Reference_Name") Then
+            If arg.Name.Contains("MaterialSkin") Then
                 Return Reflection.Assembly.Load(My.Resources.MaterialSkin)
             End If
             Return Nothing

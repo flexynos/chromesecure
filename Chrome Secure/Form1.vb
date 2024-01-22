@@ -1,6 +1,7 @@
 ﻿Imports Ionic.Zip
-
+Imports MaterialSkin
 Public Class Form1
+
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If IO.Directory.Exists("bin\" & TextBox1.Text) Then
             System.IO.Directory.Delete("bin\" & TextBox1.Text, True) ' Удаляем папку
@@ -13,6 +14,7 @@ Public Class Form1
                 For Each ext In zip
                     If (ext.UsesEncryption) Then
                         ext.ExtractWithPassword("bin\" & TextBox1.Text, TextBox2.Text)
+
                     Else
                         ext.Extract("bin\" & TextBox1.Text)
                     End If
@@ -170,22 +172,28 @@ Public Class Form1
         MessageBox.Show("Creating a new user occurs after entering a new account name!", "Chrome Secure", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Form2.ShowDialog()
-    End Sub
+  
 
-    Private Sub TextBox2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox2.KeyDown
+    Private Sub TextBox2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
             Button2.PerformClick()
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Form3.Show()
-    End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
+        SkinManager.AddFormToManage(Me)
+        SkinManager.AddFormToManage(Form2)
+        'SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
+        SkinManager.ColorScheme = New ColorScheme(Primary.Grey800, Primary.Grey900, Primary.Grey500, Accent.DeepOrange400, TextShade.WHITE)
+        If Form3.CheckBox3.Checked = True Then
+            SkinManager.Theme = MaterialSkinManager.Themes.DARK
+        Else
+        End If
+
         Label3.Hide()
         TextBox3.Hide()
         Button3.Hide()
@@ -214,6 +222,22 @@ Public Class Form1
         TextBox3.Hide()
         Button3.Hide()
         Button2.Show()
+    End Sub
+
+   
+    Private Sub MaterialFlatButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaterialFlatButton1.Click
+        Form2.ShowDialog()
+    End Sub
+
+  
+    Private Sub MaterialLabel4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'MaterialContextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y)
+    End Sub
+
+
+
+    Private Sub MaterialFlatButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaterialFlatButton2.Click
+        Form3.Show()
     End Sub
 End Class
 
