@@ -1,4 +1,5 @@
-# chromesecure
+# chromesecure 0.8.2
 Encryption of personal data in the Google Chrome browser!
-
-Based on DotNetZip with encryption (WinZipAES128/256).
+- Material design implemented
+- Libraries inside the executable
+Based on MaterialSkin 4.0 & DotNetZip with encryption (WinZipAES128/256).
